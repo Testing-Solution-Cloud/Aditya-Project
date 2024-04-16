@@ -11,11 +11,22 @@
         <field>Account.tufut__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Test_CustomObject__c.Test_Field__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account %28Sales%29 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>EmailMessage-Email Message Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Test_CustomObject2__c-Test CustomObject2 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Test_CustomObject__c-Test CustomObject Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>asxsa__c-asxsa Layout</layout>
