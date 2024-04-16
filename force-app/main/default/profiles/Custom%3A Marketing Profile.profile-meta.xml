@@ -31,6 +31,9 @@
     <layoutAssignments>
         <layout>asxsa__c-asxsa Layout</layout>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>something__c-something Layout</layout>
+    </layoutAssignments>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
