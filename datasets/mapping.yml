@@ -1,28 +1,152 @@
-Contact:
-    sf_object: Contact
-    api: bulk
-    fields:
-        - FirstName
-        - LastName
-        - Email
-
-Lead:
-    sf_object: Lead
-    api: bulk
-    fields:
-        - FirstName
-        - LastName
-        - Company
-
-Event:
-    sf_object: Event
-    api: bulk
-    fields:
-        - Subject
-        - ActivityDateTime
-        - DurationInMinutes
-    lookups:
-        WhoId:
-            table:
-                - Contact
-                - Lead
+# Editing this file is usually not recommended because it will
+# be overwritten the next time you re-capture this data.
+#
+# You can change this file's contents permanently by creating a
+# .load.yml file and re-capturing:
+#
+#  https://cumulusci.readthedocs.io/en/stable/data.html#extracting-and-loading-sample-datasets
+Insert DandBCompany:
+  sf_object: DandBCompany
+  table: DandBCompany
+  fields:
+  - DunsNumber
+  - Name
+Insert OperatingHours:
+  sf_object: OperatingHours
+  table: OperatingHours
+  fields:
+  - Name
+  - TimeZone
+Insert Individual:
+  sf_object: Individual
+  table: Individual
+  fields:
+  - LastName
+Insert Account:
+  sf_object: Account
+  table: Account
+  fields:
+  - AccountNumber
+  - AccountSource
+  - AnnualRevenue
+  - BillingCity
+  - BillingCountry
+  - BillingGeocodeAccuracy
+  - BillingLatitude
+  - BillingLongitude
+  - BillingPostalCode
+  - BillingState
+  - BillingStreet
+  - CleanStatus
+  - Description
+  - DunsNumber
+  - Fax
+  - Industry
+  - Jigsaw
+  - NaicsCode
+  - NaicsDesc
+  - Name
+  - NumberOfEmployees
+  - Ownership
+  - Phone
+  - Rating
+  - ShippingCity
+  - ShippingCountry
+  - ShippingGeocodeAccuracy
+  - ShippingLatitude
+  - ShippingLongitude
+  - ShippingPostalCode
+  - ShippingState
+  - ShippingStreet
+  - Sic
+  - SicDesc
+  - Site
+  - TickerSymbol
+  - Tradestyle
+  - Type
+  - Website
+  - YearStarted
+  lookups:
+    DandbCompanyId:
+      table:
+      - DandBCompany
+      key_field: DandbCompanyId
+    OperatingHoursId:
+      table:
+      - OperatingHours
+      key_field: OperatingHoursId
+    ParentId:
+      table:
+      - Account
+      key_field: ParentId
+      after: Insert Account
+Insert Contact:
+  sf_object: Contact
+  table: Contact
+  fields:
+  - AssistantName
+  - AssistantPhone
+  - Birthdate
+  - CleanStatus
+  - Department
+  - Description
+  - Email
+  - EmailBouncedDate
+  - EmailBouncedReason
+  - Fax
+  - FirstName
+  - HomePhone
+  - Jigsaw
+  - LastName
+  - LeadSource
+  - MailingCity
+  - MailingCountry
+  - MailingGeocodeAccuracy
+  - MailingLatitude
+  - MailingLongitude
+  - MailingPostalCode
+  - MailingState
+  - MailingStreet
+  - MobilePhone
+  - OtherCity
+  - OtherCountry
+  - OtherGeocodeAccuracy
+  - OtherLatitude
+  - OtherLongitude
+  - OtherPhone
+  - OtherPostalCode
+  - OtherState
+  - OtherStreet
+  - Phone
+  - Salutation
+  - Title
+  lookups:
+    AccountId:
+      table:
+      - Account
+      key_field: AccountId
+    IndividualId:
+      table:
+      - Individual
+      key_field: IndividualId
+    ReportsToId:
+      table:
+      - Contact
+      key_field: ReportsToId
+      after: Insert Contact
+Insert Opportunity:
+  sf_object: Opportunity
+  table: Opportunity
+  fields:
+  - Name
+  - CloseDate
+  - StageName
+  lookups:
+    ContactId:
+      table:
+      - Contact
+      key_field: ContactId
+    AccountId:
+      table:
+      - Account
+      key_field: AccountId
