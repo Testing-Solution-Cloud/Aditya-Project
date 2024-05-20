@@ -1,0 +1,370 @@
+Insert ServiceResource:
+  sf_object: ServiceResource
+  table: ServiceResource
+  action: upsert
+  update_key: Name
+  fields:
+  - Name
+Insert SkillType:
+  sf_object: SkillType
+  table: SkillType
+  action: upsert
+  update_key: MasterLabel
+  fields:
+  - MasterLabel
+Insert Skill:
+  sf_object: Skill
+  table: Skill
+  action: upsert
+  update_key: MasterLabel
+  fields:
+  - MasterLabel
+Insert OperatingHours:
+  sf_object: OperatingHours
+  table: OperatingHours
+  action: upsert
+  update_key: Name
+  fields:
+  - Name
+  - TimeZone
+  soql_filter: "Name IN ('Home Health San Francisco Operating Hours', 'Patient Home Visit Hours')"
+Insert TimeSlot:
+  sf_object: TimeSlot
+  table: TimeSlot
+  fields:
+  - DayOfWeek
+  - EndTime
+  - MaxAppointments
+  - StartTime
+  - Type
+  lookups:
+    OperatingHoursId:
+      table: OperatingHours
+      key_field: OperatingHoursId
+  soql_filter: "OperatingHours.Name IN ('Home Health San Francisco Operating Hours', 'Patient Home Visit Hours')"
+Insert Account:
+  sf_object: Account
+  table: Account
+  action: upsert
+  update_key: SourceSystemIdentifier
+  fields:
+  - Salutation
+  - FirstName
+  - LastName
+  - PersonGender
+  - PersonBirthdate
+  - Phone
+  - BillingStreet
+  - BillingCity
+  - BillingState
+  - BillingPostalCode
+  - BillingCountry
+  - ShippingStreet
+  - ShippingCity
+  - ShippingState
+  - ShippingPostalCode
+  - ShippingCountry
+  - PersonEmail
+  - RecordTypeId
+  - PersonMailingStreet
+  - PersonMailingCity
+  - PersonMailingState
+  - PersonMailingPostalCode
+  - PersonMailingCountry
+  - SourceSystemIdentifier
+  lookups:
+    OperatingHoursId:
+      table: OperatingHours
+      key_field: OperatingHoursId
+Insert ApptBundlePolicy:
+  sf_object: ApptBundlePolicy
+  table: ApptBundlePolicy
+  action: upsert
+  update_key: Name
+  fields:
+  - Name
+  - Priority
+Insert ServiceTerritory:
+  sf_object: ServiceTerritory
+  table: ServiceTerritory
+  action: upsert
+  update_key: Name
+  fields:
+  - IsActive
+  - Name
+  lookups:
+    OperatingHoursId:
+      table: OperatingHours
+      key_field: OperatingHoursId
+Insert ServiceTerritoryMember:
+  sf_object: ServiceTerritoryMember
+  table: ServiceTerritoryMember
+  fields:
+    - EffectiveStartDate
+    - TerritoryType
+  lookups:
+    ServiceResourceId:
+      table: ServiceResource
+      key_field: ServiceResourceId
+    ServiceTerritoryId:
+      table: ServiceTerritory
+      key_field: ServiceTerritoryId
+Insert WorkType:
+  sf_object: WorkType
+  table: WorkType
+  action: upsert
+  update_key: Name
+  fields:
+  - Name
+  - EstimatedDuration
+  - DurationType
+  - BlockTimeAfterUnit
+  - BlockTimeBeforeUnit
+  - TimeFrameEndUnit
+  - TimeFrameStartUnit
+  - ShouldAutoCreateSvcAppt
+Insert ServiceResourceSkill:
+  sf_object: ServiceResourceSkill
+  table: ServiceResourceSkill
+  fields:
+  - EffectiveStartDate
+  lookups:
+    ServiceResourceId:
+      table: ServiceResource
+      key_field: ServiceResourceId
+    SkillId:
+      table: Skill
+      key_field: SkillId
+Insert SkillRequirement:
+  sf_object: SkillRequirement
+  table: SkillRequirement
+  fields:
+  lookups:
+    SkillId:
+      table: Skill
+      key_field: SkillId
+    RelatedRecordId:
+      table: WorkType
+      key_field: RelatedRecordId
+  soql_filter: "RelatedRecord.TYPE = 'WorkType'"
+Insert GoalDefinition:
+  sf_object: GoalDefinition
+  table: GoalDefinition
+  action: upsert
+  update_key: Name
+  fields:
+  - Description
+  - Name
+  - Status
+  - Type
+Insert MemberPlan:
+  sf_object: MemberPlan
+  table: MemberPlan
+  action: upsert
+  update_key: Name
+  fields:
+  - Name
+  - EffectiveTo
+  - GroupNumber
+  - MemberNumber
+  - PrimarySecondaryTertiary
+  - RelationshipToSubscriber
+  - Status
+  - VerificationStatus
+  lookups:
+    MemberId:
+      table: Account
+      key_field: MemberId
+    SubscriberId:
+      table: Account
+      key_field: SubscriberId
+Insert CoverageBenefit:
+  sf_object: CoverageBenefit
+  table: CoverageBenefit
+  fields:
+  - IsActive
+  - Name
+  - PrimaryCareCopay
+  - SpecialistCopay
+  - CoverageType
+  lookups:
+    MemberId:
+      table: Account
+      key_field: MemberId
+    MemberPlanId:
+      table: MemberPlan
+      key_field: MemberPlanId
+Insert Location:
+  sf_object: Location
+  table: Location
+  action: upsert
+  update_key: Name
+  fields:
+  - Name
+  - LocationType
+Insert AssociatedLocation:
+  sf_object: AssociatedLocation
+  table: AssociatedLocation
+  fields:
+  - ActiveFrom
+  lookups:
+    ParentRecordId:
+      table: Account
+      key_field: ParentRecordId
+    LocationId:
+      table: Location
+      key_field: LocationId
+Insert ClinicalServiceRequest:
+  sf_object: ClinicalServiceRequest
+  table: ClinicalServiceRequest
+  fields:
+  - SourceSystemIdentifier
+  - QuantityNumerator
+  - QuantityType
+  - Status
+  - Type
+  lookups:
+    PatientId:
+      table: Account
+      key_field: PatientId
+Insert ClinicalServiceRequestDetail:
+  sf_object: ClinicalServiceRequestDetail
+  table: ClinicalServiceRequestDetail
+  fields:
+  - DetailType
+  lookups:
+    ClinicalServiceRequestId:
+      table: ClinicalServiceRequest
+      key_field: ClinicalServiceRequestId
+    DetailRecordId:
+      table: WorkType
+      key_field: DetailRecordId
+Insert Case:
+  sf_object: Case
+  table: Case
+  fields:
+  - Origin
+  - Priority
+  - Status
+  - Subject
+  - Type
+  - RecordTypeId
+Insert CareRequest:
+  sf_object: CareRequest
+  table: CareRequest
+  fields:
+  - MemberFirstName
+  - MemberLastName
+  - Name
+  - RecordTypeId
+  lookups:
+    CareRequestCaseId:
+      table: Case
+      key_field: CareRequestCaseId
+Insert CareRequestItem:
+  sf_object: CareRequestItem
+  table: CareRequestItem
+  fields:
+  - ApprovedQuantity
+  - DeniedQuantity
+  - Name
+  - RecordTypeId
+  lookups:
+    CareRequestId:
+      table: CareRequest
+      key_field: CareRequestId
+    CareRequestCaseId:
+      table: Case
+      key_field: CareRequestCaseId
+    ClinicalServiceRequestId:
+      table: ClinicalServiceRequest
+      key_field: ClinicalServiceRequestId
+Insert ServiceTerritoryLocation:
+  sf_object: ServiceTerritoryLocation
+  table: ServiceTerritoryLocation
+  fields:
+  lookups:
+    LocationId:
+      table: Location
+      key_field: LocationId
+    ServiceTerritoryId:
+      table: ServiceTerritory
+      key_field: ServiceTerritoryId
+Insert CarePlan:
+  sf_object: CarePlan
+  table: CarePlan
+  fields:
+  - Name
+  - Status
+  - StartDate
+  lookups:
+    ParticipantId:
+      table: Account
+      key_field: ParticipantId
+    CaseId:
+      table: Case
+      key_field: CaseId
+GoalAssignment:
+  sf_object: GoalAssignment
+  table: GoalAssignment
+  fields:
+  - Status
+  lookups:
+    ParentRecordId:
+      table: CarePlan
+      key_field: ParentRecordId
+    GoalDefinitionId:
+      table: GoalDefinition
+      key_field: GoalDefinitionId
+    GoalAssigneeId:
+      table: Account
+      key_field: GoalAssigneeId
+Insert WorkPlanTemplate:
+  sf_object: WorkPlanTemplate
+  table: WorkPlanTemplate
+  fields:
+  - IsActive
+  - Name
+Insert WorkStepTemplate:
+  sf_object: WorkStepTemplate
+  table: WorkStepTemplate
+  fields:
+  - ActionDefinition
+  - Description
+  - IsActive
+  - Name
+Insert WorkPlanTemplateEntry:
+  sf_object: WorkPlanTemplateEntry
+  table: WorkPlanTemplateEntry
+  fields:
+  - ExecutionOrder
+  lookups:
+    WorkPlanTemplateId:
+      table: WorkPlanTemplate
+      key_field: WorkPlanTemplateId
+    WorkStepTemplateId:
+      table: WorkStepTemplate
+      key_field: WorkStepTemplateId
+Insert WorkPlanSelectionRule:
+  sf_object: WorkPlanSelectionRule
+  table: WorkPlanSelectionRule
+  fields:
+  - IsActive
+  lookups:
+    WorkPlanTemplateId:
+      table: WorkPlanTemplate
+      key_field: WorkPlanTemplateId
+    WorkTypeId:
+      table: WorkType
+      key_field: WorkTypeId
+Insert ApptBundleConfig:
+  sf_object: ApptBundleConfig
+  table: ApptBundleConfig
+  fields:
+  - AddToBundleStatuses
+  - DoesAddTravelTime
+  - MemberStatusesNotToPropagate
+  - Name
+  - RemoveFromBundleStatuses
+  - StatusesNotToUpdateOnUnbundle
+  - StatusOnRemovalFromBundle
