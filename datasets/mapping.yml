@@ -145,7 +145,7 @@ Insert Opportunity:
     ContactId:
       table:
       - Contact
-      key_field: ContactId
+      - Account
     AccountId:
       table:
       - Account
