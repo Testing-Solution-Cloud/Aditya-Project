@@ -354,8 +354,8 @@ Insert WorkPlanSelectionRule:
   lookups:
     WorkPlanTemplateId:
       table: 
-        -WorkPlanTemplate
-        -Account
+        - WorkPlanTemplate
+        - Account
       key_field: WorkPlanTemplateId
     WorkTypeId:
       table: WorkType
