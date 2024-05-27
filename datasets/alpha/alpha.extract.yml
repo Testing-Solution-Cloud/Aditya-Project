@@ -1,0 +1,428 @@
+extract:
+  Account:
+    fields:
+    - CurrencyIsoCode
+    - Description
+    - Fax
+    - Name
+    - AccountNumber
+    - Phone
+    - Rating
+    - Site
+    - AccountSource
+    - Type
+    - AnnualRevenue
+    - PersonAssistantName
+    - PersonAssistantPhone
+    - BillingCity
+    - BillingCountry
+    - BillingGeocodeAccuracy
+    - BillingLatitude
+    - BillingLongitude
+    - BillingState
+    - BillingStreet
+    - BillingPostalCode
+    - PersonBirthdate
+    - Jigsaw
+    - DataPyRef__c
+    - DataPyTag__c
+    - PersonDepartment
+    - PersonDoNotCall
+    - PersonEmail
+    - PersonEmailBouncedDate
+    - PersonEmailBouncedReason
+    - PersonHasOptedOutOfEmail
+    - NumberOfEmployees
+    - PersonHasOptedOutOfFax
+    - FirstName
+    - PersonGenderIdentity
+    - PersonHomePhone
+    - PersonIndividualId
+    - Industry
+    - LastName
+    - PersonLeadSource
+    - PersonMailingCity
+    - PersonMailingCountry
+    - PersonMailingGeocodeAccuracy
+    - PersonMailingLatitude
+    - PersonMailingLongitude
+    - PersonMailingState
+    - PersonMailingStreet
+    - PersonMailingPostalCode
+    - PersonMobilePhone
+    - PersonOtherCity
+    - PersonOtherCountry
+    - PersonOtherGeocodeAccuracy
+    - PersonOtherLatitude
+    - PersonOtherLongitude
+    - PersonOtherPhone
+    - PersonOtherState
+    - PersonOtherStreet
+    - PersonOtherPostalCode
+    - Ownership
+    - ParentId
+    - PersonPronouns
+    - RecordTypeId
+    - Salutation
+    - ShippingCity
+    - ShippingCountry
+    - ShippingGeocodeAccuracy
+    - ShippingLatitude
+    - ShippingLongitude
+    - ShippingState
+    - ShippingStreet
+    - ShippingPostalCode
+    - Sic
+    - SicDesc
+    - TickerSymbol
+    - PersonTitle
+    - Website
+  Individual:
+    fields:
+    - LastName
+  Campaign:
+    fields:
+    - IsActive
+    - ActualCost
+    - BudgetedCost
+    - CurrencyIsoCode
+    - DataPyRef__c
+    - DataPyTag__c
+    - Description
+    - EndDate
+    - ExpectedResponse
+    - ExpectedRevenue
+    - Name
+    - NumberSent
+    - ParentId
+    - CampaignMemberRecordTypeId
+    - StartDate
+    - Status
+    - Type
+  CampaignMemberStatus:
+    fields:
+    - CampaignId
+    - IsDefault
+    - Label
+    - HasResponded
+    - SortOrder
+  Contact:
+    fields:
+    - AccountId
+    - AssistantName
+    - AssistantPhone
+    - Birthdate
+    - Fax
+    - Phone
+    - CurrencyIsoCode
+    - Description
+    - Jigsaw
+    - Department
+    - DoNotCall
+    - Email
+    - EmailBouncedDate
+    - EmailBouncedReason
+    - HasOptedOutOfEmail
+    - HasOptedOutOfFax
+    - FirstName
+    - GenderIdentity
+    - HomePhone
+    - IndividualId
+    - LastName
+    - LeadSource
+    - MailingCity
+    - MailingCountry
+    - MailingGeocodeAccuracy
+    - MailingLatitude
+    - MailingLongitude
+    - MailingState
+    - MailingStreet
+    - MailingPostalCode
+    - MobilePhone
+    - OtherCity
+    - OtherCountry
+    - OtherGeocodeAccuracy
+    - OtherLatitude
+    - OtherLongitude
+    - OtherPhone
+    - OtherState
+    - OtherStreet
+    - OtherPostalCode
+    - Pronouns
+    - ReportsToId
+    - Salutation
+    - Title
+  CurrencyType:
+    fields:
+    - IsActive
+    - ConversionRate
+    - IsCorporate
+    - IsoCode
+    - DecimalPlaces
+  FundraisingConfig:
+    fields:
+    - ShouldClosePaidRcrCmt
+    - IsHshldSoftCrAutoCrea
+    - ShouldCreateRcrSchdTrxn
+    - DonorMatchingMethod
+    - FailedTransactionCount
+    - HouseholdSoftCreditRole
+    - InstallmentExtDayCount
+    - LapsedUnpaidTrxnCount
+    - Language
+    - MasterLabel
+    - DeveloperName
+    - UtmCampaignSrcObj
+    - UtmCampaignSrcObjField
+    - UtmMediumSrcObj
+    - UtmMediumSrcObjField
+    - UtmSourceSrcObj
+    - UtmSourceSrcObjField
+  GiftBatch:
+    fields:
+    - CurrencyIsoCode
+    - DataPyRef__c
+    - DataPyTag__c
+    - Description
+    - ExpectedValueofGiftsinBatch
+    - EstimatedGiftCount
+    - LastProcessedDateTime
+    - ScreenTemplateName
+    - Status
+    - StatusReason
+    - DoesTotalGiftValueMatch
+  GiftCommitment:
+    fields:
+    - IsAssetTransferExpected
+    - CampaignId
+    - CurrencyIsoCode
+    - DataPyRef__c
+    - DataPyTag__c
+    - Description
+    - DonorId
+    - EffectiveStartDate
+    - ExpectedAssetMaturityDate
+    - ExpectedAssetTransferDate
+    - ExpectedEndDate
+    - ExpectedTotalCmtAmount
+    - FormalCommitmentType
+    - FulfillmentType
+    - CurrentGiftCmtScheduleId
+    - GiftVehicle
+    - GiftVehicleType
+    - Name
+    - NextTransactionAmount
+    - NextTransactionDate
+    - OpportunityId
+    - RecurrenceType
+    - ScheduleType
+    - Status
+    - TotalAssetPresentValue
+    - TotExpcAssetMaturityVal
+    - TotExpcAssetTransferVal
+  GiftCommitmentSchedule:
+    fields:
+    - CommitmentUpdateReason
+    - DataPyRef__c
+    - DataPyTag__c
+    - EndDate
+    - PaymentMethod
+    - ProcessorReference
+    - StartDate
+    - TotalScheduleAmount
+    - TransactionAmount
+    - TransactionDay
+    - TransactionInterval
+    - TransactionPeriod
+    - Type
+    - CampaignId
+    - GiftCommitmentId
+    - GiftCommitmentSchdBefEditId
+    - OutreachSourceCodeId
+    - PaymentInstrumentId
+  Opportunity:
+    fields:
+    - Amount
+    - CloseDate
+    - CurrencyIsoCode
+    - DataPyRef__c
+    - DataPyTag__c
+    - Description
+    - ForecastCategoryName
+    - IsPrivate
+    - LeadSource
+    - Name
+    - NextStep
+    - Probability
+    - StageName
+    - TotalOpportunityQuantity
+    - Type
+    - AccountId
+    - CampaignId
+    - ContactId
+    - ContractId
+    - Pricebook2Id
+    - SourceId
+  OutreachSourceCode:
+    fields:
+    - AudienceCount
+    - CurrencyIsoCode
+    - DataPyRef__c
+    - DataPyTag__c
+    - Description
+    - MessageChannel
+    - MessageChannelPlatform
+    - MessageChannelPlatformAccount
+    - MessageContent
+    - MessageContentTitle
+    - Name
+    - SourceCode
+    - SourceCodeBaseUrl
+    - SourceCodeUrl
+    - Status
+    - UsageType
+    - CampaignId
+  PaymentInstrument:
+    fields:
+    - AccountHolderName
+    - BankAccountHolderType
+    - BankAccountNumber
+    - BankAccountType
+    - BankCode
+    - BankName
+    - CardBrand
+    - CurrencyIsoCode
+    - DataPyRef__c
+    - DataPyTag__c
+    - DigitalWalletProvider
+    - ExpiryMonth
+    - ExpiryYear
+    - GatewayName
+    - GatewayReference
+    - Last4
+    - PaymentProcessorName
+    - ProcessorReference
+    - Type
+    - AccountId
+  GiftDefaultDesignation:
+    fields:
+    - AllocatedPercentage
+    - CurrencyIsoCode
+    - DataPyRef__c
+    - DataPyTag__c
+    - GiftDesignationId
+    - ParentRecordId
+  GiftDesignation:
+    fields:
+    - IsActive
+    - AverageTransactionAmount
+    - CurrencyIsoCode
+    - CurrentYearTrxnAmount
+    - CurrentYearTransactionCount
+    - DataPyRef__c
+    - DataPyTag__c
+    - IsDefault
+    - Description
+    - FirstPaidTransactionDate
+    - HighestTransactionAmount
+    - LastPaidTransactionDate
+    - LastTwoYearTrxnAmount
+    - LastTwoYearTrxnCount
+    - LastYearTrxnAmount
+    - LastYearTransactionCount
+    - LowestTransactionAmount
+    - Name
+    - TotalTransactionAmount
+    - TotalTransactionCount
+  GiftRefund:
+    fields:
+    - Amount
+    - DataPyTag__c
+    - Date
+    - GatewayTransactionFee
+    - GiftTransactionId
+    - LastGatewayErrorMessage
+    - LastGatewayProcessedDate
+    - LastGatewayResponseCode
+    - ProcessorTransactionFee
+    - Reason
+    - Status
+  GiftTransaction:
+    fields:
+    - AcknowledgementDate
+    - AcknowledgementStatus
+    - CheckDate
+    - CurrencyIsoCode
+    - DataPyRef__c
+    - DataPyTag__c
+    - Description
+    - DonorCoverAmount
+    - GatewayReference
+    - GatewayTransactionFee
+    - GiftType
+    - LastGatewayErrorMessage
+    - LastGatewayProcessedDate
+    - LastGatewayResponseCode
+    - Name
+    - OriginalAmount
+    - PaymentIdentifier
+    - PaymentMethod
+    - ProcessorReference
+    - ProcessorTransactionFee
+    - Status
+    - TransactionDate
+    - TransactionDueDate
+    - CampaignId
+    - DonorId
+    - GiftCommitmentId
+    - GiftCommitmentScheduleId
+    - MatchingEmployerTransactionId
+    - OutreachSourceCodeId
+    - PaymentInstrumentId
+  GiftSoftCredit:
+    fields:
+    - DataPyTag__c
+    - GiftTransactionId
+    - PartialAmount
+    - PartialPercent
+    - RecipientId
+    - Role
+  GiftTransactionDesignation:
+    fields:
+    - Amount
+    - CurrencyIsoCode
+    - DataPyRef__c
+    - DataPyTag__c
+    - GiftDesignationId
+    - GiftTransactionId
+    - Percent
+  GiftTribute:
+    fields:
+    - HonoreeContactId
+    - NotificationContactId
+    - CurrencyIsoCode
+    - DataPyTag__c
+    - GiftCommitmentId
+    - GiftTransactionId
+    - HonoreeInformation
+    - HonoreeName
+    - NotificationChannel
+    - NotificationContactName
+    - NotificationDate
+    - NotificationEmail
+    - NotificationInfo
+    - NotificationMessage
+    - NotificationStatus
+    - TributeType
+  Contract:
+    fields: []
+  Pricebook2:
+    fields:
+    - CurrencyIsoCode
+    - Description
+    - IsActive
+    - Name
+  BrandTemplate:
+    fields:
+    - Name
+    - Value
